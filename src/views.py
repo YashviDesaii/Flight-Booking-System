@@ -255,9 +255,7 @@ def review(request):
             flight2 = Flight.objects.get(id=flight_2)
             flight2ddate = datetime(int(date2.split('-')[2]),int(date2.split('-')[1]),int(date2.split('-')[0]),flight2.depart_time.hour,flight2.depart_time.minute)
             flight2adate = (flight2ddate + flight2.duration)
-        #print("//////////////////////////////////")
-        #print(f"flight1ddate: {flight1adate-flight1ddate}")
-        #print("//////////////////////////////////")
+       
         if round_trip:
             return render(request, "flight/book.html", {
                 'flight1': flight1,
@@ -460,14 +458,3 @@ def resume_booking(request):
     else:
         return HttpResponse("Method must be post.")
 
-def contact(request):
-    return render(request, 'flight/contact.html')
-
-def privacy_policy(request):
-    return render(request, 'flight/privacy-policy.html')
-
-def terms_and_conditions(request):
-    return render(request, 'flight/terms.html')
-
-def about_us(request):
-    return render(request, 'flight/about.html')
